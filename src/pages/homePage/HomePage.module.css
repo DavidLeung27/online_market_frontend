@@ -1,0 +1,9 @@
+.intro {
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+}
+
+.description {
+    margin: 5px auto 5px 40px;
+}

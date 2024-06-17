@@ -1,0 +1,33 @@
+.loginMethodContainer {
+    display: flex;
+}
+
+button.loginMethod {
+    width: 50%;
+    margin: 5px;
+}
+
+.phoneLogin {
+    display: flex;
+}
+
+.countryCode {
+    height: 35px;
+    margin: auto;
+    margin-right: 5px;
+}
+
+.OAuth2Login_SignUp {
+    display: flex;
+}
+
+.signUpLink {
+    font-size: 20px;
+
+    margin: auto;
+    margin-right: 15px;
+}
+
+.signUpLink:hover {
+    background-color: inherit;
+}

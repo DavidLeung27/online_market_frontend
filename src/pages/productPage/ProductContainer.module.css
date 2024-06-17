@@ -1,0 +1,23 @@
+.productContainer {
+    margin: 20px auto;
+    /* padding: 20px; */
+    width: 1000px;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 0));
+    flex-wrap: wrap;
+    height: auto;
+    /* margin: auto; */
+}
+
+.pageButtonContainer {
+    display: inline-flex;
+    margin: auto;
+    justify-content: center;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 10px;
+    border-width: 1px;
+}

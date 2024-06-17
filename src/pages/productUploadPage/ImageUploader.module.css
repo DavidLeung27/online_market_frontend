@@ -1,0 +1,44 @@
+.homePaage {
+    max-width: 1200px;
+    min-width: 1000px;
+    height: auto;
+    justify-content: center;
+    margin:auto;
+    display: block;
+}
+
+.imgUploadContainer {
+    width: 500px;
+    margin: 5px auto;
+}
+
+.imgInputButtonContainer {
+    /* align-content: center; */
+    display: flex;
+    margin: 5px auto;
+}
+
+.imgInputButton {
+    display: flex;
+    width: auto;
+    margin: auto 0;
+    padding: 5px;
+
+    font-size: 15px;
+}
+
+.imgName {
+    margin: auto 5px;
+    flex-wrap: nowrap;
+}
+
+.imgUploadDropZone {
+    height: 300px;
+    align-content: center;
+    position: relative;
+    padding: 10px 10px 0px 10px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+

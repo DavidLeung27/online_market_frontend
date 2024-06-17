@@ -1,0 +1,19 @@
+.productBox {
+    display: block;
+    height: auto;
+    width: 200px;
+    min-width: 200px;
+    padding: 0 20px;
+}
+
+.imageContainer {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.productInfoContainer {
+    height: 100px;
+    width: 150px;
+    margin: 0 auto;
+}

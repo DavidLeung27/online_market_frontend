@@ -1,0 +1,9 @@
+.productPage {
+    display: flex;
+}
+
+.filter {
+    width: 300px;
+    border-style: solid;
+    height: auto;
+}
