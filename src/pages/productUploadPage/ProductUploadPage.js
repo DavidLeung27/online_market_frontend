@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CustomForm from '../../component/CustomForm';
 import ImageUploader from './ImageUploader';
-import { BackEnd_API_URL, validInput, validInputMessage } from '../global/constants';
+import { validInput, validInputMessage } from '../global/constants';
 
 function ProductUploadPage() {
+
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
 
   const imageFuncRef = useRef();
 
@@ -14,9 +16,12 @@ function ProductUploadPage() {
   });
 
   const [categoryArray, setCategoryArray] = useState([]);
+
+  const [returnError, setReturnError] = useState(false);
+  const [ErrorMessage, setErrorMessage] = useState("");
     
   useEffect(() => {
-    fetch(BackEnd_API_URL + "/category", {
+    fetch(BackEnd_API + "/category", {
       method: 'GET'
     }).then((response) => {
       return response.json();
@@ -27,16 +32,21 @@ function ProductUploadPage() {
     })
   }, [])
 
-  const submitForm = () => {
+  const submitForm = (event) => {
+    event.preventDefault()
 
     if (!imageFuncRef.current) {
       console.log("Image Hnadler Error!");
+      setErrorMessage("Image Hnadler Error!");
+      setReturnError(1);
       return;
     }
 
     imageFuncRef.current.getCroppedImg()
     .then((croppedImage) => {
       if(croppedImage.size > 10*1024*1024) {
+        setErrorMessage("Image is too large");
+        setReturnError(1);
         return;
       }
 
@@ -45,7 +55,7 @@ function ProductUploadPage() {
       formData.append('product', JSON.stringify(product));
 
 
-      fetch(BackEnd_API_URL + "/addProduct", {
+      fetch(BackEnd_API + "/addProduct", {
         method: 'POST',
         responseType: "cors",
         body: formData
@@ -53,10 +63,16 @@ function ProductUploadPage() {
         return response.json();
       }).then((data) => {
         console.log(data);
+        setErrorMessage(data.message);
+        setReturnError(data.code);
       }).catch(() => {
         console.log("Upload product fail");
       })
-    });
+    }).catch((msg) => {
+      setErrorMessage(msg);
+      setReturnError(1);
+      console.log("Upload product fail");
+    })
     
   }
 
@@ -101,8 +117,12 @@ function ProductUploadPage() {
           </select>
 
           <input type='submit' className='btnInput' value='Upload'/>
-
         </form>
+          
+          
+          { returnError && 
+            <div>{ErrorMessage}</div>
+          }
       </CustomForm>
 
     </div>

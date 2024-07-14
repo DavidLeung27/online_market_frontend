@@ -3,9 +3,10 @@ import ProductPreview from './ProductPreview'
 import { useLocation } from 'react-router-dom';
 import styles from './ProductContainer.module.css'
 import PageButton from '../../component/PageButton';
-import { BackEnd_API_URL } from '../global/constants';
 
 export default function ProductContainer() {
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
+
   const {search} = useLocation();
   const searchParams = new URLSearchParams(search);
 
@@ -47,7 +48,7 @@ export default function ProductContainer() {
     }
     setUrlFormat(1);
 
-    fetch(BackEnd_API_URL + '/product/v2?' + new URLSearchParams({
+    fetch(BackEnd_API + '/product/v2?' + new URLSearchParams({
       ...params,
       pageSize: pageSize
     }))

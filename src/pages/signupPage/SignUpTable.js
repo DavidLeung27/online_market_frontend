@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BackEnd_API_URL, validInput, validInputMessage } from '../global/constants';
+import { validInput, validInputMessage } from '../global/constants';
 import CustomForm from '../../component/CustomForm';
 import { useNavigate } from 'react-router-dom';
 
 function SignUpTable() {
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
+
   const navigate = useNavigate();
 
   const [phoneSignUp, setPhoneSignUp] = useState(1);
@@ -50,7 +52,7 @@ function SignUpTable() {
     console.log(formData);
 
 
-    fetch(BackEnd_API_URL + '/signup', {
+    fetch(BackEnd_API + '/signup', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(submitForm)

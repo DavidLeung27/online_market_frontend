@@ -42,6 +42,9 @@ export default function ImageUploader({funcRef}) {
       const img = new Image();
   
       img.src = image;
+      if (!image) {
+        reject('Please upload an image first');
+      }
       img.onload = () => {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Header.module.css'
-import { BackEnd_API_URL } from '../global/constants';
 import { Link } from 'react-router-dom';
 
 function SearchBar() {
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
 
   const [searchResult, setSearchResult] = useState([]);
   const [searchVal, setSearchVal] = useState();
@@ -11,7 +11,7 @@ function SearchBar() {
 
   const searchHandler = e => {
     const searchText = e.target.value;
-    fetch(BackEnd_API_URL + '/search?' + new URLSearchParams({
+    fetch(BackEnd_API + '/search?' + new URLSearchParams({
       keyword: searchText
     })).then((response) => {
       return response.json();

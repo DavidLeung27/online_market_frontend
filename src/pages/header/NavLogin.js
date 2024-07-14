@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import styles from './Header.module.css'
-import { BackEnd_API_URL } from '../global/constants';
 
 function NavLogin() {
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
+
   const [loggedIn, setloggedIn] = useState(0);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ function NavLogin() {
       return;
     }
 
-    fetch(BackEnd_API_URL + '/login/jwtChecker', {
+    fetch(BackEnd_API + '/login/jwtChecker', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
