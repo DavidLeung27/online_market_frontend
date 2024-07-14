@@ -1,13 +1,47 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom';
 
 function SearchBar() {
   const BackEnd_API = process.env.REACT_APP_BACKEND_API;
 
-  const [searchResult, setSearchResult] = useState([]);
-  const [searchVal, setSearchVal] = useState();
+  const inputRef = useRef(null);
 
+  const [searchVal, setSearchVal] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
+  const [noOfSearchResult, setNoOfSearchResult] = useState(0);
+
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  const inputChangeHandler = e => {
+    setSearchVal(e.target.value);
+    searchHandler(e);
+  }
+
+  const keyDownHandler = e => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedIndex(selectedIndex == noOfSearchResult - 1 ? noOfSearchResult - 1 : selectedIndex + 1);
+      return ;
+    }
+
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedIndex(selectedIndex == -1 ? -1 : selectedIndex - 1);
+      return ;
+    }
+
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (selectedIndex == -1) {
+        window.location = ('/product?productName=' + searchVal + '&page=1');
+      } else {
+        window.location = ('/product?productName=' + searchResult[selectedIndex] + '&page=1');
+      }
+    }
+
+    return ;
+  }
 
   const searchHandler = e => {
     const searchText = e.target.value;
@@ -21,6 +55,7 @@ function SearchBar() {
         return;
       }
       setSearchResult(data.data);
+      setNoOfSearchResult(data.data.length);
     }).catch(() => {
       console.log("fail");
     })
@@ -32,14 +67,27 @@ function SearchBar() {
   }
 
   return (
-    <form className={styles.searchBar}>
+    <div className={styles.searchBar}>
       
       <div className={styles.searchDropDown}>
-        <input type="text" value={searchVal} onClick={searchHandler} onChange={searchHandler} placeholder='Search' className={styles.searchInput}/>
+        <input type="text" 
+          value={searchVal} 
+          onClick={searchHandler} 
+          onChange={inputChangeHandler}
+          onKeyDown={keyDownHandler} 
+          placeholder='Search' 
+          className={styles.searchInput}
+          ref={inputRef}
+        />
         <div className={styles.searchSuggestion}>
           { searchResult.map((data, index) => {
             return (
-              <Link to={'/product?productName=' + data + '&page=1'} onClick={() => handleLinkClick(data)} className={styles.searchItem} key={index}>
+              <Link 
+                to={'/product?productName=' + data + '&page=1'} 
+                onClick={() => handleLinkClick(data)} 
+                className={styles.searchItem + ' ' + (index == selectedIndex ? styles.selected : '')} 
+                key={index}
+              >
                 {data}
               </Link>
             )
@@ -47,9 +95,10 @@ function SearchBar() {
         </div>
       </div>
       
-      <button className={styles.searchBtn}>Search</button>
+      <button className={styles.searchBtn} onClick={() => window.location = ('/product?productName=' + searchVal + '&page=1')}>Search</button>
     
-    </form>
+    </div>
+
   )
 }
 
