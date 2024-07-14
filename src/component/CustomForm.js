@@ -23,22 +23,24 @@ export default function CustomForm({children, setElement}) {
 
     const addAttribute = (child) => {
 
-        if (!child.props) { return child; }
-        
-        if (!(child.type === 'input' || child.type === 'select' || child.props.children)) { return child; }
+        try {
+            if (!(child.type === 'input' || child.type === 'select' || child.props.children)) { return child; }
 
-        const newProps = {};
-        
-        if (child.type === 'input' || child.type === 'select') {
-            newProps.onChange = formChangeHandler;
+            const newProps = {};
+            
+            if (child.type === 'input' || child.type === 'select') {
+                newProps.onChange = formChangeHandler;
+            }
+
+            if (child.props.children) {
+                newProps.children = Children.map(child.props.children, addAttribute);
+            }
+
+            return cloneElement(child, newProps)
+        } catch {
+            return child;
         }
-
-        if (child.props.children) {
-            newProps.children = Children.map(child.props.children, addAttribute);
-        }
-
-
-        return cloneElement(child, newProps)
+        
     };
         
     return Children.map(children, addAttribute);
