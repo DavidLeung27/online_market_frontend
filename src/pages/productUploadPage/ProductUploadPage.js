@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CustomForm from '../../component/CustomForm';
 import ImageUploader from './ImageUploader';
-import { BackEnd_API_URL, validInput, validInputMessage } from '../global/constants';
+import { validInput, validInputMessage } from '../global/constants';
 
 function ProductUploadPage() {
+
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
 
   const imageFuncRef = useRef();
 
@@ -16,7 +18,7 @@ function ProductUploadPage() {
   const [categoryArray, setCategoryArray] = useState([]);
     
   useEffect(() => {
-    fetch(BackEnd_API_URL + "/category", {
+    fetch(BackEnd_API + "/category", {
       method: 'GET'
     }).then((response) => {
       return response.json();
@@ -45,7 +47,7 @@ function ProductUploadPage() {
       formData.append('product', JSON.stringify(product));
 
 
-      fetch(BackEnd_API_URL + "/addProduct", {
+      fetch(BackEnd_API + "/addProduct", {
         method: 'POST',
         responseType: "cors",
         body: formData

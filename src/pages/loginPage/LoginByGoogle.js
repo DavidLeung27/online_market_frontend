@@ -1,13 +1,15 @@
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import React from 'react'
-import { BackEnd_API_URL, Google_Oauth_ClientId, HomePage_URL } from '../global/constants';
 
-export default function LoginByGoogle() { 
+export default function LoginByGoogle() {
+    const HomePage = process.env.REACT_APP_HOME_PAGE;
+    const BackEnd_API = process.env.REACT_APP_BACKEND_API;
+    const Google_Oauth_ClientId = process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID;
 
     const successHandler = (response) => {
         console.log("success by google login: ", response);
 
-        fetch(BackEnd_API_URL + '/login/oauth/google', {
+        fetch(BackEnd_API + '/login/oauth/google', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +20,7 @@ export default function LoginByGoogle() {
         }).then((data) => {
             console.log(data);
             if(data.code == 1) {
-                window.location.href = HomePage_URL;
+                window.location.href = HomePage;
             }
         }).catch(() => {
             console.log("fail");

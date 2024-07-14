@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import styles from './LoginPage.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 import LoginByGoogle from './LoginByGoogle';
-import { BackEnd_API_URL, validInput, validInputMessage } from '../global/constants';
+import { validInput, validInputMessage } from '../global/constants';
 import CustomForm from '../../component/CustomForm';
 
 export default function LoginPage() {
+  const BackEnd_API = process.env.REACT_APP_BACKEND_API;
+
   const [phoneLogin, setPhoneLogin] = useState(1);
 
   let navigate = useNavigate();
@@ -43,7 +45,7 @@ export default function LoginPage() {
       submitForm = rest;
     }
 
-    fetch(BackEnd_API_URL + '/login', {
+    fetch(BackEnd_API + '/login', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(submitForm)

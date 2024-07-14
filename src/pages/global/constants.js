@@ -1,8 +1,8 @@
-export const HomePage_URL = "http://localhost:3000"
+// export const HomePage_URL = "https://onlinemarket.david-leung-project.com"
 
-export const BackEnd_API_URL = "http://localhost:8080"
+// export const BackEnd_API_URL = "https://onlinemarket-server.david-leung-project.com"
 
-export const Google_Oauth_ClientId = "510468186222-ut83218bhe7j3e908oh417vj3algu10l.apps.googleusercontent.com";
+// export const Google_Oauth_ClientId = "510468186222-ut83218bhe7j3e908oh417vj3algu10l.apps.googleusercontent.com";
 
 export const validInput = {
     phoneNumber: '[0-9]{8,9}',
