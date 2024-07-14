@@ -68,6 +68,10 @@
     justify-content: flex-start;
 }
 
+.selected {
+    background-color: #cbcbcb;
+}
+
 .searchBtn {
     width: fit-content;
     height: 40px;
