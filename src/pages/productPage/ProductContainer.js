@@ -48,7 +48,7 @@ export default function ProductContainer() {
     }
     setUrlFormat(1);
 
-    fetch(BackEnd_API + '/product/v2?' + new URLSearchParams({
+    fetch(BackEnd_API + '/product?' + new URLSearchParams({
       ...params,
       pageSize: pageSize
     }))

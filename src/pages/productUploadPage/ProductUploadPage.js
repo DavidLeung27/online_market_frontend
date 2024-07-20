@@ -17,8 +17,8 @@ function ProductUploadPage() {
 
   const [categoryArray, setCategoryArray] = useState([]);
 
-  const [returnError, setReturnError] = useState(false);
-  const [ErrorMessage, setErrorMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
     
   useEffect(() => {
     fetch(BackEnd_API + "/category", {
@@ -37,16 +37,16 @@ function ProductUploadPage() {
 
     if (!imageFuncRef.current) {
       console.log("Image Hnadler Error!");
-      setErrorMessage("Image Hnadler Error!");
-      setReturnError(1);
+      setMessage("Image Hnadler Error!");
+      setShowMessage(1);
       return;
     }
 
     imageFuncRef.current.getCroppedImg()
     .then((croppedImage) => {
       if(croppedImage.size > 10*1024*1024) {
-        setErrorMessage("Image is too large");
-        setReturnError(1);
+        setMessage("Image is too large");
+        setShowMessage(1);
         return;
       }
 
@@ -63,14 +63,15 @@ function ProductUploadPage() {
         return response.json();
       }).then((data) => {
         console.log(data);
-        setErrorMessage(data.message);
-        setReturnError(data.code);
+        setMessage(data.msg);
+        setShowMessage(data.code);
       }).catch(() => {
         console.log("Upload product fail");
       })
+
     }).catch((msg) => {
-      setErrorMessage(msg);
-      setReturnError(1);
+      setMessage(msg);
+      setShowMessage(1);
       console.log("Upload product fail");
     })
     
@@ -120,8 +121,8 @@ function ProductUploadPage() {
         </form>
           
           
-          { returnError && 
-            <div>{ErrorMessage}</div>
+          { showMessage && 
+            <div>{message}</div>
           }
       </CustomForm>
 
