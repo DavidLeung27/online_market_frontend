@@ -4,7 +4,8 @@ html {
 
 *, *:before, *:after {
     box-sizing: inherit;
-  }
+    font-family: serif;
+}
 
 body {
     background-color: wheat;
@@ -85,9 +86,9 @@ a:hover {
 .page {
     display: block;
     max-width: 1200px;
-    min-width: 1000px;
+    min-width: 600px;
     height: auto;
-    margin: 25px auto 200px auto;
+    margin: 0 auto 200px auto;
     
     justify-content: center;
     text-align: center;
