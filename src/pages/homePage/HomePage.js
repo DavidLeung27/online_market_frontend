@@ -1,25 +1,58 @@
 import React from 'react'
 import styles from './HomePage.module.css'
+import { Link } from 'react-router-dom'
 
 export default function HomePage() {
 
   return (
-    <div className="page">
-      <h1>Online Market Website</h1>
-      <div className={styles.intro}>
-        <p>This website is built using React, Spring Boot, and MySQL. It includes the following functionalities:</p>
-        <li>Upload a product: </li>
-        <p className={styles.description}> - Accessible on the /upload page.</p>
-        <li>View all products: </li>
-        <p className={styles.description}> - Available on the /product page.</p>
-        <li>Search for products by name: </li>
-        <p className={styles.description}> - Search bar located in the header, utilizing Apache Lucene for full-text and fuzzy searching.</p>
-        <li>Sign up: </li>
-        <p className={styles.description}> - Registration form located on the /signup page.</p>
-        <li>Login: </li>
-        <p className={styles.description}> - Authentication form available on the /login page, with JWT/OAuth2 functionalities.</p>
-        <li>Return to the home page: </li>
-        <p className={styles.description}> - Click the logo in the header to navigate back to the home page.</p>
+    <div className={styles.home}>
+      <div className="page">
+
+        <div className={styles.profile}>
+
+
+          <div className={styles.profileCard}>
+
+            <img src='/img/logo.png' className={styles.profileImg} alt='profileImg'/>
+            <h2 className={styles.profileName}>
+              David Leung
+            </h2>
+
+            <div className={styles.profileLinks}>
+              <Link to="https://github.com/DavidLeung27" className={styles.profileIcon} >
+                <img src='/img/github.png'  className={styles.profileIcon} alt='github'/>
+              </Link>
+              <Link to="https://github.com/DavidLeung27" className={styles.profileIcon} >
+                <img src='/img/linkedin.png'  className={styles.profileIcon} alt='linkedin'/>
+              </Link>
+            </div>
+
+          </div>
+
+          <div className={styles.profileDescription}>
+            <div className={styles.profileTitle}>
+              Hello!
+            </div>
+            <div className={styles.profileSubTitle}>
+              Welcome to my first project - online market!
+            </div>
+            <a className={styles.profileResumeDownload} href='/pdf/CV_draft.pdf' download>
+              Resume
+              <img src='/img/downloadIcon.png'  className={styles.profileIcon} alt='download'/>
+            </a>
+            <div className={styles.profileText}>
+              I am a graduate student of Electrical Engineering. 
+              After years of experience in the engineering field, 
+              I decided to pivot to the IT industry, driven by my passion for technology and innovation. 
+              Over the past year, I have dedicated myself to learning programming. 
+              To demonstrate my skills, I have developed this web application by
+              using React, Java Spring Boot, and MySQL.
+            </div>
+          </div>
+
+          
+        </div>
+
       </div>
     </div>
   )
