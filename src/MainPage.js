@@ -1,16 +1,27 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './pages/header/Header';
-import HomePage from './pages/homePage/HomePage';
-import SignUpPage from './pages/signupPage/SignUpPage';
-import LoginPage from './pages/loginPage/LoginPage';
-import ProfilePage from './pages/profilePage/ProfilePage';
-import ProductPage from './pages/productPage/ProductPage';
-import ProductUploadPage from './pages/productUploadPage/ProductUploadPage';
-import NotFound from './pages/404Page/NotFound';
-import './pages/global/base.css'
-import styles from './pages/MainPage.module.css'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import HomePage from './marketPages/homePage/HomePage';
+import SignUpPage from './marketPages/signupPage/SignUpPage';
+import LoginPage from './marketPages/loginPage/LoginPage';
+import ProfilePage from './marketPages/profilePage/ProfilePage';
+import ProductPage from './marketPages/productPage/ProductPage';
+import ProductUploadPage from './marketPages/productUploadPage/ProductUploadPage';
+import NotFound from './global/404Page/NotFound';
+import './global/base.css'
+import styles from './profilePages/MainPage.module.css'
 import ProfileFooter from './profilePages/profileFooter/ProfileFooter';
 import ProfileHeader from './profilePages/profileHeader/ProfileHeader';
+import MarketHeader from './marketPages/marketHeader/MarketHeader';
+
+const Header = () => {
+  const location = useLocation();
+  const isOnlineMarket = location.pathname.startsWith('/online-market');
+
+  return (
+    <div>
+      { isOnlineMarket ? <MarketHeader/> : <ProfileHeader/> }
+    </div>
+  )
+}
 
 
 function MainPage() {
@@ -18,15 +29,14 @@ function MainPage() {
   return (
     <div className={styles.pageContainer}>
       <BrowserRouter>
-        {/* <Header/> */}
-        <ProfileHeader/>
+        <Header/>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
-          <Route path='/product/*' element={<ProductPage/>}/>
-          <Route path='/upload' element={<ProductUploadPage/>}/>
-          <Route path='/login' element={<LoginPage/>}/>
-          <Route path='/signup' element={<SignUpPage/>}/>
-          <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='online-market/product/*' element={<ProductPage/>}/>
+          <Route path='online-market/upload' element={<ProductUploadPage/>}/>
+          <Route path='online-market/login' element={<LoginPage/>}/>
+          <Route path='online-market/signup' element={<SignUpPage/>}/>
+          <Route path='online-market/profile' element={<ProfilePage/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
         <ProfileFooter/>

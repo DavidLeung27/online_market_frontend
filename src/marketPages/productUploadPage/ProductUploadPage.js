@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CustomForm from '../../component/CustomForm';
 import ImageUploader from './ImageUploader';
-import { validInput, validInputMessage } from '../global/constants';
+import { validInput, validInputMessage } from '../../global/constants';
 
 function ProductUploadPage() {
 

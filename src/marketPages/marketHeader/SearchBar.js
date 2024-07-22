@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './Header.module.css'
+import styles from './MarketHeader.module.css'
 import { Link } from 'react-router-dom';
 
 function SearchBar() {

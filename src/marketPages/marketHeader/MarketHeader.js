@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react'
-import styles from './Header.module.css'
+import styles from './MarketHeader.module.css'
 import SearchBar from './SearchBar';
 import NavLogin from './NavLogin';
 import NavProductDrop from './NavProductDrop';
