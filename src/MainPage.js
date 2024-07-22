@@ -9,6 +9,8 @@ import ProductUploadPage from './pages/productUploadPage/ProductUploadPage';
 import NotFound from './pages/404Page/NotFound';
 import './pages/global/base.css'
 import styles from './pages/MainPage.module.css'
+import ProfileFooter from './profilePages/profileFooter/ProfileFooter';
+import ProfileHeader from './profilePages/profileHeader/ProfileHeader';
 
 
 function MainPage() {
@@ -16,16 +18,18 @@ function MainPage() {
   return (
     <div className={styles.pageContainer}>
       <BrowserRouter>
-        <Header/>
+        {/* <Header/> */}
+        <ProfileHeader/>
         <Routes>
-            <Route path='/' element={<HomePage/>}/>
-            <Route path='/product/*' element={<ProductPage/>}/>
-            <Route path='/upload' element={<ProductUploadPage/>}/>
-            <Route path='/login' element={<LoginPage/>}/>
-            <Route path='/signup' element={<SignUpPage/>}/>
-            <Route path='/profile' element={<ProfilePage/>}/>
-            <Route path='*' element={<NotFound/>}/>
-          </Routes>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/product/*' element={<ProductPage/>}/>
+          <Route path='/upload' element={<ProductUploadPage/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/signup' element={<SignUpPage/>}/>
+          <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='*' element={<NotFound/>}/>
+        </Routes>
+        <ProfileFooter/>
       </BrowserRouter>
     </div>
   );
