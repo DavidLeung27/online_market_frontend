@@ -31,14 +31,14 @@ export default function HomePage() {
 
           <div className={styles.profileDescription}>
             <div className={styles.profileTitle}>
-              Hello!
+              Hello
             </div>
             <div className={styles.profileSubTitle}>
-              Welcome to my first project - online market!
+              Welcome to my first project - online market
             </div>
-            <a className={styles.profileResumeDownload} href='/pdf/CV_draft.pdf' download>
+            <a className={styles.profileResumeDownload} href='/pdf/CV.pdf'  target="_blank">
               Resume
-              <img src='/img/downloadIcon.png'  className={styles.profileIcon} alt='download'/>
+              {/* <img src='/img/downloadIcon.png'  className={styles.profileIcon} alt='download'/> */}
             </a>
             <div className={styles.profileText}>
               I am a graduate student of Electrical Engineering. 
