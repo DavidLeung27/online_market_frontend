@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './LoginPage.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 import LoginByGoogle from './LoginByGoogle';
-import { validInput, validInputMessage } from '../global/constants';
+import { validInput, validInputMessage } from '../../global/constants';
 import CustomForm from '../../component/CustomForm';
 
 export default function LoginPage() {
