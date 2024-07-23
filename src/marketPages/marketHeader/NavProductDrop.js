@@ -12,13 +12,13 @@ function NavProductDrop() {
 
       <div className={styles.dropDownContent}>
 
-        <Link to="/product?page=1" className={styles.dropDownItem}>
+        <Link to="/online-market/product?page=1" className={styles.dropDownItem}>
           <span className={styles.headerBtnText}>
             View Product
           </span>
         </Link>
 
-        <Link to="/upload" className={styles.dropDownItem}>
+        <Link to="/online-market/upload" className={styles.dropDownItem}>
           <span className={styles.headerBtnText}>
             Upload Product
           </span>

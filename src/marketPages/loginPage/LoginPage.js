@@ -57,7 +57,7 @@ export default function LoginPage() {
       }
 
       localStorage.setItem("accessToken", data.data)
-      window.location = "/";
+      window.location = "/online-market/";
     })
   }
 

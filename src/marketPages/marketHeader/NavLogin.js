@@ -44,11 +44,11 @@ function NavLogin() {
   return (
     <>
       {(!loggedIn && (
-        <Link to="/login"  className={styles.loginNav}>
+        <Link to="/online-market/login"  className={styles.loginNav}>
           <span className={styles.headerBtnText}>Login</span>
         </Link>
       )) || (
-        <Link to="/profile"  className={styles.profileNav}>
+        <Link to="/online-market/profile"  className={styles.profileNav}>
           <img src={process.env.PUBLIC_URL + '/img/user.png'} alt='userLogo' className={styles.userLogo}/>
         </Link>
       )}

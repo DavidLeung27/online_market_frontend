@@ -83,7 +83,7 @@ function SearchBar() {
           { searchResult.map((data, index) => {
             return (
               <Link 
-                to={'/product?productName=' + data + '&page=1'} 
+                to={'/online-market/product?productName=' + data + '&page=1'} 
                 onClick={() => handleLinkClick(data)} 
                 className={styles.searchItem + ' ' + (index == selectedIndex ? styles.selected : '')} 
                 key={index}
@@ -95,7 +95,7 @@ function SearchBar() {
         </div>
       </div>
       
-      <button className={styles.searchBtn} onClick={() => window.location = ('/product?productName=' + searchVal + '&page=1')}>Search</button>
+      <button className={styles.searchBtn} onClick={() => window.location = ('/online-market/product?productName=' + searchVal + '&page=1')}>Search</button>
     
     </div>
 

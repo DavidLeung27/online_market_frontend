@@ -63,7 +63,7 @@ function SignUpTable() {
     }).then((data) => {
       if (data.code == 1) {
         setACExists({code: 0});
-        window.location = "/login";
+        window.location = "/online-market/login";
         return;
       }
 
