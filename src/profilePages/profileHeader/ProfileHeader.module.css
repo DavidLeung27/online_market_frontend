@@ -1,0 +1,55 @@
+.profileHeader {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    padding: 10px 75px;
+    background-color: white;
+    white-space: nowrap;
+}
+
+.headerLeft {
+    display: flex;
+}
+
+.blueDot {
+    width: 19px;
+    height: 19px;
+    background-color: #0050ff;
+    margin: auto;
+}
+
+.homePageBtn {
+    padding: 10px;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.homePageBtn:hover {
+    background-color: transparent;
+}
+
+.headerRight {
+    display: flex;
+}
+
+.navBtn {
+    padding: 20px;
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.navBtn:hover {
+    background-color: transparent;
+}
+
+.navBtn:visited {
+   color: black;
+}
+
+.active {
+    color: #0050ff;
+}
+
+.active:visited {
+    color: #0050ff;
+}
