@@ -1,0 +1,21 @@
+.projectPageTitleContainer {
+    display: flex;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.blueDot {
+    width: 19px;
+    height: 19px;
+    background-color: #0050ff;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.projectPageTitle {
+    margin: auto;
+    margin-left: 0;
+    font-size: 25px;
+    font-weight: 900;
+}
+

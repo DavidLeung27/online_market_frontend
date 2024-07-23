@@ -1,8 +1,8 @@
 .profileFooter {
-    position: fixed;
+    /* position: fixed; */
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 10vh;
     bottom: 0;
     left: 0;
     background-color: white;
@@ -11,7 +11,7 @@
 
 .profileFooterBox {
     width: 250px;
-    height: 100px;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

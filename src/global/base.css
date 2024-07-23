@@ -4,12 +4,13 @@ html {
 
 *, *:before, *:after {
     box-sizing: inherit;
-    font-family: Verdana, sans-serif;
+    font-family: "Goudy Bookletter 1911", sans-serif;
 }
 
 body {
-    background-color: wheat;
+    background-color: #ffecd4;
     margin: 0;
+    padding: 0;
 }
 
 div {
@@ -85,10 +86,11 @@ a:hover {
 
 .page {
     display: block;
+    min-height: 80vh;
     max-width: 1200px;
     min-width: 600px;
     height: auto;
-    margin: 0 auto 200px auto;
+    margin: 0 auto 0 auto;
     
     justify-content: center;
     text-align: center;
@@ -113,3 +115,6 @@ a:hover {
     background-color: #d8d0d09c;
 }
 
+h1 {
+    margin: 0;
+}

@@ -33,19 +33,28 @@ export default function HomePage() {
             <div className={styles.profileTitle}>
               Hello
             </div>
+
             <div className={styles.profileSubTitle}>
-              Welcome to my first project - online market
+              Here's who I am & what I do
             </div>
-            <a className={styles.profileResumeDownload} href='/pdf/CV.pdf'  target="_blank">
-              Resume
-              {/* <img src='/img/downloadIcon.png'  className={styles.profileIcon} alt='download'/> */}
-            </a>
+
+            <div className={styles.profileNav}>
+
+              <a className={styles.profileResumeDownload} href='/pdf/CV.pdf'  target="_blank">
+                Resume
+                {/* <img src='/img/downloadIcon.png'  className={styles.profileIcon} alt='download'/> */}
+              </a>
+              <Link to={'/project'} className={styles.profileProjectNav}>Project</Link>
+
+            </div>
+
+
             <div className={styles.profileText}>
               I am a graduate student of Electrical Engineering. 
               After years of experience in the engineering field, 
               I decided to pivot to the IT industry, driven by my passion for technology and innovation. 
               Over the past year, I have dedicated myself to learning programming. 
-              To demonstrate my skills, I have developed this web application by
+              To demonstrate my skills, I have developed a web application by
               using React, Java Spring Boot, and MySQL.
             </div>
           </div>

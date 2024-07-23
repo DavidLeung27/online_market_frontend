@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import HomePage from './marketPages/homePage/HomePage';
+import HomePage from './profilePages/homePage/HomePage';
 import SignUpPage from './marketPages/signupPage/SignUpPage';
 import LoginPage from './marketPages/loginPage/LoginPage';
 import ProfilePage from './marketPages/profilePage/ProfilePage';
@@ -7,10 +7,12 @@ import ProductPage from './marketPages/productPage/ProductPage';
 import ProductUploadPage from './marketPages/productUploadPage/ProductUploadPage';
 import NotFound from './global/404Page/NotFound';
 import './global/base.css'
-import styles from './profilePages/MainPage.module.css'
+import styles from './MainPage.module.css'
 import ProfileFooter from './profilePages/profileFooter/ProfileFooter';
 import ProfileHeader from './profilePages/profileHeader/ProfileHeader';
 import MarketHeader from './marketPages/marketHeader/MarketHeader';
+import ResumePage from './profilePages/resumePage/ResumePage';
+import ProjectPage from './profilePages/projectPage/ProjectPage';
 
 const Header = () => {
   const location = useLocation();
@@ -32,6 +34,8 @@ function MainPage() {
         <Header/>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
+          {/* <Route path='/resume' element={<ResumePage/>}/> */}
+          <Route path='/project' element={<ProjectPage/>}/>
           <Route path='online-market/product/*' element={<ProductPage/>}/>
           <Route path='online-market/upload' element={<ProductUploadPage/>}/>
           <Route path='online-market/login' element={<LoginPage/>}/>
