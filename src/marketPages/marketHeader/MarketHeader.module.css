@@ -1,20 +1,26 @@
 .header {
     display: flex;
-    height: 100px;
+    height: 10vh;
     justify-content: space-between;
     background-color: grey;
     min-width: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .imgContainer, .profileNav {
     display: flex;
-    width: 150px;
-    height: auto;
+    width: auto;
+    height: 100%;
+}
+
+.imgContainer:hover {
+    background-color: transparent;
 }
 
 .logo {
     margin: auto;
-    width: 100px;
+    height: 100%;
 }
 
 .userLogo {
