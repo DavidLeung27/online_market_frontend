@@ -13,6 +13,7 @@ import ProfileHeader from './profilePages/profileHeader/ProfileHeader';
 import MarketHeader from './marketPages/marketHeader/MarketHeader';
 import ResumePage from './profilePages/resumePage/ResumePage';
 import ProjectPage from './profilePages/projectPage/ProjectPage';
+import MarketHomePage from './marketPages/marketHomePage/MarketHomePage';
 
 const Header = () => {
   const location = useLocation();
@@ -36,11 +37,12 @@ function MainPage() {
           <Route path='/' element={<HomePage/>}/>
           {/* <Route path='/resume' element={<ResumePage/>}/> */}
           <Route path='/project' element={<ProjectPage/>}/>
-          <Route path='online-market/product/*' element={<ProductPage/>}/>
-          <Route path='online-market/upload' element={<ProductUploadPage/>}/>
-          <Route path='online-market/login' element={<LoginPage/>}/>
-          <Route path='online-market/signup' element={<SignUpPage/>}/>
-          <Route path='online-market/profile' element={<ProfilePage/>}/>
+          <Route path='/online-market' element={<MarketHomePage/>}/>
+          <Route path='/online-market/product/*' element={<ProductPage/>}/>
+          <Route path='/online-market/upload' element={<ProductUploadPage/>}/>
+          <Route path='/online-market/login' element={<LoginPage/>}/>
+          <Route path='/online-market/signup' element={<SignUpPage/>}/>
+          <Route path='/online-market/profile' element={<ProfilePage/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
         <ProfileFooter/>

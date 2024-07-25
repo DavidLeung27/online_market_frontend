@@ -1,0 +1,98 @@
+.fadeImageContainer {
+    text-align: center;
+    margin: auto;
+    position: relative;
+}
+
+.fadeImage {
+    margin: auto;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.fadeOut {
+    animation: fadeOut 0.25s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.25s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.3;
+    }
+}
+
+.slogan {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    /* transform: translate(-60%, -95%); */
+    font-size: 75px;
+    text-align: left;
+}
+
+.sloganTitle {
+    font-size: 75px;
+    font-weight: 700;
+    padding-bottom: 20px;
+
+    /* text-align: left; */
+}
+
+.sloganContent {
+    font-size: 40px;
+    padding-bottom: 20px;
+
+    /* text-align: left; */
+}
+
+.sloganBreak {
+    justify-content: left;
+}
+
+.sloganContent2 {
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.shopNowBtn {
+    background-color: rgb(84, 203, 219);
+    border-radius: 50px;
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    font-size: 20px;
+    padding: 10px;
+    width: 150px;
+    color: white;
+}
+
+.shopNowBtn:visited {
+    color: white;
+}
+
+.shopNowBtn:hover {
+    background-color: transparent;
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 138, 219);
+    color: black;
+}
+
+.shopNowBtn:hover:visited {
+    color: black;
+}
