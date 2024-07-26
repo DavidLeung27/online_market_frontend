@@ -2,11 +2,16 @@
     text-align: center;
     margin: auto;
     position: relative;
+    margin-bottom: 25px;
+
 }
 
 .fadeImage {
     margin: auto;
+    /* min-height: 60vh; */
     width: 100%;
+    min-height: 60vh;
+    object-fit: cover;
     opacity: 0.3;
 }
 
