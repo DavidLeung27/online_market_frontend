@@ -1,9 +1,10 @@
 .gimmickContainer {
-    display: inline-flex;
+    display: flex;
 }
 
 .gimmickItem {
     padding: 20px;
+    margin: auto;
     /* width: 300px; */
     width: 100%;
     /* width: 25%; */
