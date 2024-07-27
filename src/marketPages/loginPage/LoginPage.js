@@ -9,14 +9,15 @@ export default function LoginPage() {
   const BackEnd_API = process.env.REACT_APP_BACKEND_API;
 
   const [phoneLogin, setPhoneLogin] = useState(1);
+  const [loginFail, setLoginFail] = useState(0);
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     countryCode: '+852',
     phoneNumber: '',
     email: '',
-    username: '',
+    // username: '',
     password: ''
   });
 
@@ -43,6 +44,7 @@ export default function LoginPage() {
     } else {
       const {countryCode, phoneNumber, ...rest} = formData;
       submitForm = rest;
+      submitForm.loginMethod = 'EmailLogin'
     }
 
     fetch(BackEnd_API + '/login', {
@@ -50,14 +52,22 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(submitForm)
     }).then((response) => {
+      if(response.status !== 200) {
+        throw new Error("login fail");
+      }
       return response.json();
     }).then((data) => {
       if(data.code == 0) {
+        setLoginFail(1);
+        console.log("login fail");
         return;
       }
+      console.log("login success");
 
       localStorage.setItem("accessToken", data.data)
       window.location = "/online-market/";
+    }).catch(() => {
+      console.log("login fail");
     })
   }
 
@@ -100,12 +110,12 @@ export default function LoginPage() {
 
               <select className={styles.countryCode} id="Country Code" name="countryCode"> 
                 <option value="+852">+852</option>
-                <option value="+886">+000</option> 
+                <option value="+886">+886</option> 
               </select>
 
               <input 
                 id="LoginPhone" 
-                className={styles.fromInput} 
+                className={styles.formInput} 
                 type="tel" 
                 name="phoneNumber" 
                 placeholder="Phone Number"
@@ -121,7 +131,7 @@ export default function LoginPage() {
               
               <input 
                 id="LoginEmail" 
-                className={styles.fromInput} 
+                className={styles.formInput} 
                 type="text" 
                 name="email" 
                 placeholder="Email address"
@@ -138,7 +148,7 @@ export default function LoginPage() {
             
             <input 
               id="LoginPassword" 
-              className={styles.fromInput} 
+              className={styles.formInput} 
               type="password" 
               name="password" 
               placeholder="Password"
@@ -151,6 +161,10 @@ export default function LoginPage() {
 
           <input type='submit' className={styles.loginButton} id="Login" value='Login'/>
           
+          {
+            loginFail ? <div className={styles.loginFail}>Account is not exist or password incorrect.</div> : null
+          }
+
           <Link to='/online-market/signup' 
           className={styles.signUpLink}>
             SignUp

@@ -67,7 +67,7 @@
     border-radius: 0;
 }
 
-.fromInput {
+.formInput {
     background-color: transparent;
     height: 35px;
 
@@ -76,8 +76,12 @@
     border-radius: 0;
 }
 
-.fromInput:focus {
+.formInput:focus {
     outline: none;
+}
+
+.formInput:is(:-webkit-autofill, :autofill) {
+    -webkit-background-clip: text;
 }
 
 .loginButton {
@@ -104,6 +108,10 @@
     border-width: 2px;
     border-color: rgb(84, 203, 219);
     border-radius: 20px;
+}
+
+.loginFail {
+    color: red;
 }
 
 .signUpLink {

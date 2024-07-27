@@ -1,0 +1,90 @@
+.signUpMethodContainer {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.signUpMethod {
+    width: 50%;
+    margin: 5px;
+
+    color: rgb(180, 180, 180);
+    background-color: transparent;
+
+    border-color: rgb(180, 180, 180);
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+
+}
+
+.signUpMethod:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.selectedSignUpMethod {
+    color: black;
+    border-color: black;
+}
+
+.inputContainer {
+    display: flex;
+    /* margin: 10px; */
+}
+
+.countryCode {
+    height: 35px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    
+    background-color: transparent;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+}
+
+.formInput {
+    background-color: transparent;
+    height: 35px;
+    margin-bottom: 25px;
+
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+}
+
+.formInput:focus {
+    outline: none;
+}
+
+.formInput:is(:-webkit-autofill, :autofill) {
+    -webkit-background-clip: text;
+}
+
+.loginButton {
+    /* margin-top: 25px; */
+    background-color: transparent;
+    height: 35px;
+
+    background-color: rgb(84, 203, 219);
+    color: white;
+
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+
+    background-color: transparent;
+    color: black;
+    
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}

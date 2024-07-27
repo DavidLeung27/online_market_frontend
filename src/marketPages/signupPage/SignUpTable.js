@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { validInput, validInputMessage } from '../../global/constants';
 import CustomForm from '../../component/CustomForm';
 import { useNavigate } from 'react-router-dom';
+import styles from './SignUpTable.module.css'
 
 function SignUpTable() {
   const BackEnd_API = process.env.REACT_APP_BACKEND_API;
@@ -83,33 +84,51 @@ function SignUpTable() {
 
       <form className='form' onSubmit={submitSignUpForm}>
 
-        <div>
-          <button type='button' onClick = {() => {if(!phoneSignUp) {changeSignUpMethod()}}} id="button_phoneLogin">Phone Number</button>
-          <button type='button' onClick = {() => {if(phoneSignUp) {changeSignUpMethod()}}} id="button_emailLogin">Email Address</button>
+        <div className={styles.signUpMethodContainer}>
+          <button 
+          className={`${styles.signUpMethod} ${phoneSignUp ? styles.selectedSignUpMethod : ''}`} 
+          type='button' 
+          onClick = {() => {if(!phoneSignUp) {changeSignUpMethod()}}} 
+          id="button_phoneSignUp">
+            Phone Number
+          </button>
+
+          <button 
+          className={`${styles.signUpMethod} ${!phoneSignUp ? styles.selectedSignUpMethod : ''}`} 
+          type='button' 
+          onClick = {() => {if(phoneSignUp) {changeSignUpMethod()}}} 
+          id="button_emailSignUp">
+            Email Address
+          </button>
         </div>
 
         { phoneSignUp ? (
           <>
             <label htmlFor='signUpPhone'>Phone Number: *</label>
-            <select title='Please select your country code' className="countryCode" id="Country Code" name="countryCode"> 
-              <option value='+852'>+852</option>
-              <option value='+886'>+886</option> 
-            </select>
 
-            <input 
-              className="phoneInput" 
+            <div id="SignUp by Phone" className={styles.inputContainer}>
+
+              <select title='Please select your country code' className={styles.countryCode} id="Country Code" name="countryCode"> 
+                <option value='+852'>+852</option>
+                <option value='+886'>+886</option> 
+              </select>
+
+              <input 
+              className={styles.formInput}
               id="signUpPhone" 
               type="tel" 
               name="phoneNumber" 
               pattern={validInput.phoneNumber} 
               title={validInputMessage.phoneNumber}
               required/>
+
+            </div>
           </>
         ) : (
           <>
             <label htmlFor='signUpEmail'>Email: *</label>
             <input 
-              className="emailOrUserInput" 
+              className={styles.formInput}
               id="signUpEmail" 
               type="email" 
               name="email"
@@ -122,6 +141,7 @@ function SignUpTable() {
         
         <label htmlFor='signUpPassword'>Password: *</label>
         <input 
+          className={styles.formInput}
           id="signUpPassword" 
           type="password" 
           name="password" 
@@ -132,6 +152,7 @@ function SignUpTable() {
         
         <label htmlFor='signUpUsername'>Username: *</label>
         <input 
+          className={styles.formInput}
           id="signUpUsername" 
           type="text" 
           name="username" 
@@ -142,6 +163,8 @@ function SignUpTable() {
         
         <label htmlFor='signUpFirstName'>First Name: *</label>
         <input 
+
+          className={styles.formInput}
           id="signUpFirstName" 
           type="text" 
           name="firstName" 
@@ -152,6 +175,8 @@ function SignUpTable() {
         
         <label htmlFor='signUpLastName'>Last Name: *</label>
         <input 
+
+          className={styles.formInput}
           id="signUpLastName" 
           type="text" 
           name="lastName" 
@@ -170,7 +195,7 @@ function SignUpTable() {
           required 
         /> */}
 
-        <input type='submit' className='btnInput' value='Sign Up'/>
+        <input type='submit' className={styles.loginButton} value='Sign Up'/>
 
         { acExists.code == '0' &&
           <div>{acExists.msg}</div>
