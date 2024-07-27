@@ -67,18 +67,36 @@ export default function LoginPage() {
     <div className='page'>
 
       <CustomForm setElement={setFormData}>
-        <h2>Login</h2>
         
         <form className='form' onSubmit={submitLoginForm}>
+          <div className={styles.loginTitle}>Login</div>
+          <div className={styles.separateLine}></div>
 
           <div className={styles.loginMethodContainer}>
-            <button className={styles.loginMethod} onClick = {() => {if(!phoneLogin) {changeLoginMethod()}}} type="button" id="button_phoneLogin">Phone Number</button>
-            <button className={styles.loginMethod} onClick = {() => {if(phoneLogin) {changeLoginMethod()}}} type="button" id="button_emailLogin">Email Address</button>
+
+            <button 
+            className={`${styles.loginMethod} ${phoneLogin ? styles.selectedLoginMethod : ''}`} 
+            onClick = {() => {if(!phoneLogin) {changeLoginMethod()}}} 
+            type="button" 
+            id="button_phoneLogin">
+              Phone Number
+            </button>
+
+            {/* <div className={styles.separateLineLoginMethod}></div> */}
+
+            <button 
+            className={`${styles.loginMethod} ${!phoneLogin ? styles.selectedLoginMethod : ''}`} 
+            onClick = {() => {if(phoneLogin) {changeLoginMethod()}}} 
+            type="button" 
+            id="button_emailLogin">
+              Email Address
+            </button>
+
           </div>
           
 
           {phoneLogin ? (
-            <div id="Login by Phone" className={styles.phoneLogin}>
+            <div id="Login by Phone" className={styles.inputContainer}>
 
               <select className={styles.countryCode} id="Country Code" name="countryCode"> 
                 <option value="+852">+852</option>
@@ -87,6 +105,7 @@ export default function LoginPage() {
 
               <input 
                 id="LoginPhone" 
+                className={styles.fromInput} 
                 type="tel" 
                 name="phoneNumber" 
                 placeholder="Phone Number"
@@ -98,10 +117,11 @@ export default function LoginPage() {
             </div>
           ) : (
 
-            <div id="Login by Email">
+            <div id="Login by Email" className={styles.inputContainer}>
               
               <input 
                 id="LoginEmail" 
+                className={styles.fromInput} 
                 type="text" 
                 name="email" 
                 placeholder="Email address"
@@ -114,10 +134,11 @@ export default function LoginPage() {
 
           )}
           
-          <div>
+          <div className={styles.inputContainer}>
             
             <input 
               id="LoginPassword" 
+              className={styles.fromInput} 
               type="password" 
               name="password" 
               placeholder="Password"
@@ -128,12 +149,19 @@ export default function LoginPage() {
             
           </div>
 
-          <input type='submit' className='btnInput' id="Login" value='Login'/>
+          <input type='submit' className={styles.loginButton} id="Login" value='Login'/>
+          
+          <Link to='/online-market/signup' 
+          className={styles.signUpLink}>
+            SignUp
+          </Link>
+
+          <div className={styles.separateLine}></div>
+
 
           <div className={styles.OAuth2Login_SignUp}>
-            <LoginByGoogle/>
-            
-            <Link to='/signup' className={styles.signUpLink}>SignUp</Link>
+            {/* <div className={styles.loginTitle}>LoginBy</div> */}
+            <LoginByGoogle className={styles.loginByGoogle}/>
           </div>
 
         </form>

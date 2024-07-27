@@ -1,33 +1,157 @@
+.loginTitle {
+    text-align: left;
+    padding-top: 50px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.separateLine {
+    width: 100%;
+    height: 2px;
+    /* background-color: rgb(200, 200, 200); */
+    background-color: black;
+    margin-bottom: 25px;
+}
+
 .loginMethodContainer {
     display: flex;
+    margin-bottom: 25px;
 }
 
-button.loginMethod {
+.loginMethod {
     width: 50%;
     margin: 5px;
+
+    color: rgb(180, 180, 180);
+    background-color: transparent;
+
+    border-color: rgb(180, 180, 180);
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+
 }
 
-.phoneLogin {
+.loginMethod:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.selectedLoginMethod {
+    color: black;
+    border-color: black;
+}
+
+/* .separateLineLoginMethod {
+    height: auto;
+    width: 2px;
+    background-color: rgb(200, 200, 200);
+
+} */
+
+.inputContainer {
     display: flex;
+    margin: 10px;
 }
 
 .countryCode {
     height: 35px;
     margin: auto;
     margin-right: 5px;
+    
+    background-color: transparent;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
 }
 
-.OAuth2Login_SignUp {
-    display: flex;
+.fromInput {
+    background-color: transparent;
+    height: 35px;
+
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+}
+
+.fromInput:focus {
+    outline: none;
+}
+
+.loginButton {
+    margin-top: 25px;
+    background-color: transparent;
+    height: 35px;
+
+    background-color: rgb(84, 203, 219);
+    color: white;
+
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+
+    background-color: transparent;
+    color: black;
+    
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
 }
 
 .signUpLink {
-    font-size: 20px;
-
-    margin: auto;
-    margin-right: 15px;
+    font-size: 18px;
+    margin: 5px;
+    padding: 5px;
+    width: 50px;
+    margin-bottom: 25px;
 }
 
 .signUpLink:hover {
-    background-color: inherit;
+    background-color: transparent;
+    color: rgb(100, 100, 100);
+}
+
+.OAuth2Login_SignUp {
+    display: block;
+}
+
+.googleLoginBtn {
+    display: inline-flex;
+    text-align: center;
+    
+    padding: 10px;
+    width: 100%;
+    
+    background-color: white;
+
+    border: solid 1px;
+    border-radius: 10px;
+    border-color: rgb(180, 180, 180);
+
+}
+
+.googleLoginBtn:hover {
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+    border-color: rgb(180, 180, 180);
+}
+
+.googleIcon {
+    height: 25px;
+    margin: auto;
+    margin-left: 0;
+    /* padding: 5px; */
+}
+
+.googleText {
+    margin: auto;
+    margin-left: 0;
 }
