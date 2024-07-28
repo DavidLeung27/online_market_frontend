@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './MarketHeader.module.css'
+// import styles from './MarketHeader.module.css'
+import styles from './SearchBar.module.css'
 import { Link } from 'react-router-dom';
 
 function SearchBar() {
@@ -95,7 +96,9 @@ function SearchBar() {
         </div>
       </div>
       
-      <button className={styles.searchBtn} onClick={() => window.location = ('/online-market/product?productName=' + searchVal + '&page=1')}>Search</button>
+      <Link className={styles.searchBtn} to={searchVal == '' ? '/online-market/product?page=1' : '/online-market/product?productName=' + searchVal + '&page=1'}>
+        <img src={process.env.PUBLIC_URL + '/img/search.png'} alt='search' className={styles.searchIcon} />
+      </Link>
     
     </div>
 

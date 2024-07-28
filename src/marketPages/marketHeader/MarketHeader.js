@@ -9,6 +9,10 @@ export default function () {
 
   return (
     <div className={styles.header}>
+      <Link to="/" className={styles.imgContainer}>
+        <div className={styles.return}>&lt;</div>
+      </Link>
+
       <Link to="/online-market/" className={styles.imgContainer}>
         <img src={process.env.PUBLIC_URL + '/img/logo.png'} alt='logo' className={styles.logo}/>
       </Link>
