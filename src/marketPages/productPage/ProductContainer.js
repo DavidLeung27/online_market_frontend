@@ -31,15 +31,33 @@ export default function ProductContainer() {
 
   GetParams();
 
+  const [width, setWidth] = useState(window.innerWidth);
+
+  
+
   const pageNumber = parseInt(params.page);
 
   const [urlFormat, setUrlFormat] = useState(1);
   
   const [lastPageNumber, setLastPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(20);
+  const [pageSize, setPageSize] = useState(Math.min(Math.floor(window.innerWidth*2/200), 10));
   
   const [componentArray, setCompnentArray] = useState([]);
   const [pageButtonArray, setPageButtonArray] = useState([]);
+
+  useEffect(() => {
+    console.log(pageSize)
+    const handleResize = () => {
+      setPageSize(Math.floor(window.innerWidth*2/200));
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+    
+  }, []);
 
   useEffect(() => {
     if (params.page == undefined || params.page < 1) {
@@ -119,7 +137,7 @@ export default function ProductContainer() {
       pageButtonArrayTemp.push(lastPage);
     }
 
-    if (pageNumber != lastPageNumber) {
+    if (pageNumber != lastPageNumber && lastPageNumber > 1) {
       nextPage.clickable = true;
     } else {
       nextPage.clickable = false;
@@ -134,7 +152,7 @@ export default function ProductContainer() {
     <>
       <div className={styles.productContainer}>
         { !urlFormat && 
-          <div>No Result.</div>
+          <div className={styles.noResult}>No Result.</div>
         }
         <div className={styles.productGrid}>
 

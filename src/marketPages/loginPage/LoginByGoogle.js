@@ -60,7 +60,7 @@ const GoogleLoginBtn = () => {
 
     return (
         <div onClick={() => login()} className={styles.googleLoginBtn}>
-            <img src='/img/google.png' className={styles.googleIcon} alt='googleIcon'/>
+            <img src={process.env.PUBLIC_URL + '/img/google.png'} className={styles.googleIcon} alt='googleIcon'/>
             <div className={styles.googleText}>
                 Continue with Google
             </div>

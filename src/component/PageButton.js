@@ -27,7 +27,7 @@ export default function PageButton({params, content, clickable}) {
             </span>
         }
         { clickable &&
-            <Link className={classDeterminerForLink} to={'/product?' + new URLSearchParams(params)}>
+            <Link className={classDeterminerForLink} to={'/online-market/product?' + new URLSearchParams(params)}>
                 {content}
             </Link>
         }
