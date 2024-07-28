@@ -82,7 +82,10 @@ function SignUpTable() {
   return (
     <CustomForm setElement={setFormData} >
 
+
       <form className='form' onSubmit={submitSignUpForm}>
+        <div className={styles.signUpTitle}>SignUp</div>
+        <div className={styles.separateLine}></div>
 
         <div className={styles.signUpMethodContainer}>
           <button 
@@ -106,7 +109,7 @@ function SignUpTable() {
           <>
             <label htmlFor='signUpPhone'>Phone Number: *</label>
 
-            <div id="SignUp by Phone" className={styles.inputContainer}>
+            <div className={styles.inputContainer}>
 
               <select title='Please select your country code' className={styles.countryCode} id="Country Code" name="countryCode"> 
                 <option value='+852'>+852</option>
@@ -127,63 +130,78 @@ function SignUpTable() {
         ) : (
           <>
             <label htmlFor='signUpEmail'>Email: *</label>
-            <input 
-              className={styles.formInput}
-              id="signUpEmail" 
-              type="email" 
-              name="email"
-              pattern={validInput.email}
-              title={validInputMessage.email} 
-              required
-            />
+
+            <div className={styles.inputContainer}>
+              <input 
+                className={styles.formInput}
+                id="signUpEmail" 
+                type="email" 
+                name="email"
+                pattern={validInput.email}
+                title={validInputMessage.email} 
+                required
+              />
+            </div>
           </>
         )}
         
         <label htmlFor='signUpPassword'>Password: *</label>
-        <input 
-          className={styles.formInput}
-          id="signUpPassword" 
-          type="password" 
-          name="password" 
-          pattern={validInput.all} 
-          title={validInputMessage.all}
-          required 
-        />
+        <div className={styles.inputContainer}>
+
+          <input 
+            className={styles.formInput}
+            id="signUpPassword" 
+            type="password" 
+            name="password" 
+            pattern={validInput.all} 
+            title={validInputMessage.all}
+            required 
+          />
+
+        </div>
         
         <label htmlFor='signUpUsername'>Username: *</label>
-        <input 
-          className={styles.formInput}
-          id="signUpUsername" 
-          type="text" 
-          name="username" 
-          pattern={validInput.all} 
-          title={validInputMessage.all} 
-          required 
-        />
+        <div className={styles.inputContainer}>
+          <input 
+            className={styles.formInput}
+            id="signUpUsername" 
+            type="text" 
+            name="username" 
+            pattern={validInput.all} 
+            title={validInputMessage.all} 
+            required 
+          />
+        </div>
         
         <label htmlFor='signUpFirstName'>First Name: *</label>
-        <input 
+        <div className={styles.inputContainer}>
+          <input 
 
-          className={styles.formInput}
-          id="signUpFirstName" 
-          type="text" 
-          name="firstName" 
-          pattern={validInput.charOnly} 
-          title={validInputMessage.charOnly} 
-          required 
-        />
+            className={styles.formInput}
+            id="signUpFirstName" 
+            type="text" 
+            name="firstName" 
+            pattern={validInput.charOnly} 
+            title={validInputMessage.charOnly} 
+            required 
+          />
+
+        </div>
         
         <label htmlFor='signUpLastName'>Last Name: *</label>
-        <input 
+        <div className={styles.inputContainer}>
 
-          className={styles.formInput}
-          id="signUpLastName" 
-          type="text" 
-          name="lastName" 
-          pattern={validInput.charOnly} 
-          title={validInputMessage.charOnly}
-          required 
-        />
+          <input 
+
+            className={styles.formInput}
+            id="signUpLastName" 
+            type="text" 
+            name="lastName" 
+            pattern={validInput.charOnly} 
+            title={validInputMessage.charOnly}
+            required 
+          />
+        </div>
 
         {/* <label htmlFor='address'>Address: *</label>
         <input 
@@ -195,7 +213,7 @@ function SignUpTable() {
           required 
         /> */}
 
-        <input type='submit' className={styles.loginButton} value='Sign Up'/>
+        <input type='submit' className={styles.signUpButton} value='Sign Up'/>
 
         { acExists.code == '0' &&
           <div>{acExists.msg}</div>

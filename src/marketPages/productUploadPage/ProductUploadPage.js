@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import CustomForm from '../../component/CustomForm';
 import ImageUploader from './ImageUploader';
 import { validInput, validInputMessage } from '../../global/constants';
+import styles from './ProductUploadPage.module.css'
 
 function ProductUploadPage() {
 
@@ -60,6 +61,9 @@ function ProductUploadPage() {
         responseType: "cors",
         body: formData
       }).then((response) => {
+        if(response.status !== 200) {
+          throw new Error("login fail");
+        }
         return response.json();
       }).then((data) => {
         console.log(data);
@@ -89,27 +93,36 @@ function ProductUploadPage() {
         {/* <input type='file' required/> */}
 
           <label htmlFor='productName'>Product Name:</label>
-          <input 
-            id='productName' 
-            type='text' 
-            name='productName' 
-            pattern={validInput.charAndNum}
-            title={validInputMessage.charAndNum}
-            required
-          />
+          <div className={styles.inputContainer}>
+            <input 
+              id='productName' 
+              type='text' 
+              name='productName' 
+              pattern={validInput.charAndNum}
+              title={validInputMessage.charAndNum}
+              required
+            />
+
+          </div>
 
           <label htmlFor='price'>Price:</label>
-          <input 
-            id='price' 
-            type='number' 
-            name='price'
-            pattern={validInput.numOnly}
-            title={validInputMessage.numOnly}
-            required
-          />
+
+          <div className={styles.inputContainer}>
+            <input 
+              id='price' 
+              type='number' 
+              name='price'
+              pattern={validInput.numOnly}
+              title={validInputMessage.numOnly}
+              required
+            />
+
+          </div>
 
           <div id='linkedCategory' className='nowrap'>Category:&nbsp;</div>
-          <select name='linkedCategory'>
+
+          
+          <select name='linkedCategory' className={styles.selectCategory}>
             { categoryArray.map((item) => (
               <option key={item.category_id} value={JSON.stringify([{ category_id: item.category_id, category: item.category }])}>
                 {item.category}
@@ -117,7 +130,7 @@ function ProductUploadPage() {
             ))}
           </select>
 
-          <input type='submit' className='btnInput' value='Upload'/>
+          <input type='submit' className={styles.uploadBtn} value='Upload'/>
         </form>
           
           

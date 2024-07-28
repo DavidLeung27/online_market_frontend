@@ -1,0 +1,42 @@
+.inputContainer {
+    display: flex;
+    margin: 10px 0;
+}
+
+.selectCategory {
+    height: 35px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    
+    background-color: transparent;
+    /* border-width: 0; */
+    /* border-bottom-width: 1px;
+    border-radius: 0; */
+}
+
+.uploadBtn {
+    margin-top: 25px;
+    background-color: transparent;
+    height: 35px;
+
+    background-color: rgb(84, 203, 219);
+    color: white;
+
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}
+
+.uploadBtn:hover {
+    cursor: pointer;
+
+    background-color: transparent;
+    color: black;
+    
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}
