@@ -17,3 +17,27 @@
     width: 150px;
     margin: 0 auto;
 }
+
+.addToCartBtn {
+    background-color: transparent;
+
+    background-color: rgb(84, 203, 219);
+    color: white;
+
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}
+
+.addToCartBtn:hover {
+    cursor: pointer;
+
+    background-color: transparent;
+    color: black;
+    
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(84, 203, 219);
+    border-radius: 20px;
+}

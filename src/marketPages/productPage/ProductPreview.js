@@ -13,7 +13,7 @@ export default function ProductPreview({ id, image, productName, price }) {
         <p id='productName'>{productName}</p>
         <p id='price'>$ {price}</p>
       </div>
-      <button>Add to Cart</button>
+      <button className={styles.addToCartBtn}>Add to Cart</button>
     </span> 
   )
 }

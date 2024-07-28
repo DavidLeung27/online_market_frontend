@@ -8,7 +8,7 @@ export const validInput = {
     phoneNumber: '[0-9]{8,9}',
     email: '[^\s@]+@[^\s@]+\.[^s@]{1,30}',
     all: '[0-9a-zA-Z`!@#$%^&*?]{1,20}',
-    charAndNum: '[0-9a-zA-Z]{1,20}',
+    charAndNum: '[0-9a-zA-Z ]{1,20}',
     charOnly: '[a-zA-Z ]{1,20}',
     numOnly: '[0-9]{1,20}'
 };
