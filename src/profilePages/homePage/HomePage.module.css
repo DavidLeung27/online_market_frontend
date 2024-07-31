@@ -46,11 +46,12 @@
 
 .profileName {
     width: 100px;
+    height: 180px;
     margin: auto;
     display: flex;
     font-size: 30px;
     padding-top: 50px;
-    padding-bottom: 75px;
+    /* padding-bottom: 75px; */
 }
 
 .profileLinks {
@@ -117,6 +118,10 @@
     border-radius: 25px;
     border-width: 2px;
     border-color: #0050ff;
+    color: white;
+}
+
+.profileResumeDownload:link {
     color: white;
 }
 

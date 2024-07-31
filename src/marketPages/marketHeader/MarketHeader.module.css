@@ -14,7 +14,7 @@
     height: 100%;
 }
 
-.imgContainer:hover {
+.imgContainer:hover, .profileNav:hover {
     background-color: transparent;
 }
 
