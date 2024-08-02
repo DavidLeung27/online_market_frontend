@@ -69,7 +69,7 @@ const GoogleLoginBtn = () => {
         flow: 'auth-code',
         cookiePolicy: 'single_host_origin',
         ux_mode: 'redirect',
-        redirect_uri: {HomePage} + '/login',
+        redirect_uri: `${HomePage}/login`,
         scope: 'https://www.googleapis.com/auth/calendar'
     })
 
