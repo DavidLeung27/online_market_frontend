@@ -6,6 +6,8 @@ import { validInput, validInputMessage } from '../../global/constants';
 import CustomForm from '../../component/CustomForm';
 
 export default function LoginPage() {
+
+
   const BackEnd_API = process.env.REACT_APP_BACKEND_API;
 
   const [phoneLogin, setPhoneLogin] = useState(1);
@@ -176,6 +178,8 @@ export default function LoginPage() {
           <div className={styles.OAuth2Login_SignUp}>
             {/* <div className={styles.loginTitle}>LoginBy</div> */}
             <LoginByGoogle className={styles.loginByGoogle}/>
+            {/* <GoogleLoginButton className={styles.loginByGoogle} /> */}
+            {/* <div class="g-signin2" data-onsuccess="onSignIn"></div> */}
           </div>
 
         </form>
